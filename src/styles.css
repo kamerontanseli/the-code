@@ -1,0 +1,269 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box; /* Set the sizing of an element to include it's border */
+}
+
+* {
+  margin: 0; /* Set the default margin to 0 */
+  padding: 0; /* Set the default padding to 0 */
+}
+
+ul[role="list"],
+ol[role="list"] {
+  list-style: none; /* Turn off numbered and unordered list decoration */
+}
+
+html:focus-within {
+  scroll-behavior: smooth; /* Make the scrolling inside of any scrollable element smooth */
+}
+
+a:not([class]) {
+  text-decoration-skip-ink: auto; /* Makes link undelines look better */
+}
+
+img,
+picture,
+svg,
+video,
+canvas {
+  max-width: 100%; /* Makes it responsive */
+  height: auto; /* Makes it responsive */
+  vertical-align: middle; /* Makes text next to inline images look better */
+  font-style: italic; /* If the images don't load it makes the alt decription look better */
+  background-repeat: no-repeat;
+  /* The background repeat and size are there if you want to load a picture first like a backroung image that is worse quality while the better quality image loads */
+  background-size: cover;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit; /* Makes these elements inherit fonts */
+}
+
+/* Turns off animation for people who don't want to see them */
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+    transition: none;
+  }
+}
+
+body,
+html {
+  height: 100%; /* Makes the body element full screen */
+  scroll-behavior: smooth; /* Makes normal scrolling smooth */
+  font-family: monospace;
+}
+
+/* Application Code */
+.app {
+  padding: 16px;
+  max-width: 480px;
+  margin: 0 auto;
+}
+
+.dashboard {
+  margin-top: 12px;
+}
+
+.dashboard__section {
+  margin-top: 32px;
+}
+
+.dashboard__title {
+  font-size: 1.5em;
+  margin-bottom: 12px;
+}
+
+.dashboard__metric {
+  font-size: 1.25em;
+  margin-bottom: 16px;
+}
+
+.dashboard__metrix-change {
+  font-size: 0.8em;
+}
+
+.dashboard__metrix-change--positive {
+  color: green;
+}
+
+.dashboard__metrix-change--negative {
+  color: red;
+}
+
+.dashboard__week {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  align-items: center;
+  border: 1px solid #000;
+  border-right: 0;
+}
+
+.dashboard__week-tile {
+  padding: 12px 0;
+  text-align: center;
+}
+
+.dashboard__week > .dashboard__week-tile {
+  border-right: 1px solid #000;
+}
+
+.dashboard__chart-container {
+  display: flex;
+  gap: 8px;
+  font-size: 1em;
+  margin-top: 32px;
+  margin-bottom: 62px;
+}
+
+.dashboard__chart-axes {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.dashboard__chart {
+  height: 150px;
+  flex-grow: 1;
+  display: flex;
+  align-items: end;
+  gap: 2px;
+}
+
+.dashboard__chart-bar {
+  background-color: #000;
+  position: relative;
+  display: flex;
+  flex-grow: 1;
+  flex-shrink: 0;
+  width: calc(100% / 36);
+  align-items: end;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.dashboard__chart-bar span {
+  position: relative;
+  bottom: -20px;
+  font-size: 1em;
+}
+
+.dashboard__evaluations {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.dashboard__eval {
+  padding: 12px;
+  border: 1px solid #000;
+  display: grid;
+  grid-template-columns: 1fr max-content;
+}
+
+.dashboard__eval-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.link-primary {
+  color: blue;
+}
+
+.link-negative {
+  color: red;
+}
+
+.btn {
+  display: block;
+  width: 100%;
+  padding: 12px;
+  text-align: center;
+  border: 1px solid #000;
+  text-decoration: none;
+}
+
+.btn.btn-primary {
+  background-color: #000;
+  color: #fff;
+}
+
+.evaluation {
+  margin-top: 12px;
+}
+
+.evaluation__header {
+  background-color: #000;
+  margin-top: -32px;
+  margin-left: -16px;
+  margin-right: -16px;
+  padding: 16px;
+  color: #fff;
+  text-align: center;
+  font-size: 1.25em;
+}
+
+.evaluation__question {
+  margin-top: 32px;
+  padding-bottom: 32px;
+}
+
+.evaluation > .evaluation__question:not(:last-child) {
+  border-bottom: 1px solid #eee;
+}
+
+.evaluation__question-title {
+  margin-bottom: 6px;
+  font-size: 1.25em;
+}
+
+.evaluation__question-subtitle {
+  line-height: 1.4;
+  margin-bottom: 12px;
+}
+
+.evaluation__input {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  align-items: center;
+  border: 1px solid #000;
+  border-right: 0;
+  margin-bottom: 12px;
+}
+
+.evaluation__input-tile {
+  padding: 12px 0;
+  text-align: center;
+}
+
+.evaluation__input-tile--selected {
+  background-color: #000;
+  color: #fff;
+}
+
+.evaluation__input > .evaluation__input-tile {
+  border-right: 1px solid #000;
+}
+
+.evaluation__overall {
+  text-align: center;
+  margin: 32px 0;
+}
+
+.evaluation__overall p {
+  margin-bottom: 12px;
+}

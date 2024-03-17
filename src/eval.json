@@ -1,0 +1,170 @@
+[
+  {
+    "id": "physical_fitness",
+    "category": "Health",
+    "title": "💪 Physical Fitness",
+    "description": "Activities that increase cardiovascular, strength, flexibility, and mobility. Daily actions that promote physical health.",
+    "scores": {
+      "score_0": "Inactive. Did not perform any activities that contributed to overall physical fitness level.",
+      "score_1": "Engaged in a basic fitness routine or activity.",
+      "score_2_4": "Engaged in intense physical activity and demanding exercise that increased overall fitness level while addressing weaker areas that need improvement.",
+      "score_5": "Participated in training that reached a level of exertion beyond my perceived limits. The most intense physical training that I was capable of performing set a new baseline for maximum useful effort."
+    }
+  },
+  {
+    "id": "sleep_rest",
+    "category": "Health",
+    "title": "🛌 Sleep/Rest",
+    "description": "Understanding of optimal personal rest and sleep requirements and pursuit of daily actions that contribute to achieving them. Striking the right balance of those needs with the time demands of life.",
+    "scores": {
+      "score_0": "Did not get rest or sleep that was useful in leading to a productive day. Slept so much or so little that the body was not capable of performing well.",
+      "score_1": "Got minimal sleep or rest required to perform at the lowest acceptable standard throughout day.",
+      "score_2_4": "Got effective sleep or rest throughout the day to be ready to perform at a high level.",
+      "score_5": "Perfectly optimized body's need for rest. Went to sleep tired, woke up alert and ready after optimal number of hours asleep. Rested at the ideal time for the ideal duration to maintain a sustained peak level of performance throughout the entire day."
+    }
+  },
+  {
+    "id": "diet_nutrition",
+    "category": "Health",
+    "title": "🥩 Diet/Nutrition",
+    "description": "Making healthy eating decisions based on an understanding of optimal nutrient intake. Consuming the ideal amount and type of calories at the right time to ensure optimal physical performance.",
+    "scores": {
+      "score_0": "Did not eat properly and did not provide any nutritional benefit to perform critical daily tasks.",
+      "score_1": "Food intake was effective to sustain health but did not optimize nutrition or participate in health enhancement program.",
+      "score_2_4": "Made effective eating decisions throughout the day allowing for performance at a high level.",
+      "score_5": "Consumed ideal food intake and maintained perfect adherence to diet or fasting. Every calorie was optimal, and nothing was consumed that didn't contribute to health and nutrition, allowing for a sustained peak level of performance throughout the entire day."
+    }
+  },
+  {
+    "id": "intellectual_fitness",
+    "category": "Personal Development",
+    "title": "🧠 Intellectual Fitness",
+    "description": "Activities and pursuits that contribute to increased learning, acquiring additional skills, and enhancing overall level of knowledge and ability. Involved in challenging artistic pursuits that develop often overlooked components of intellectual fitness.",
+    "scores": {
+      "score_0": "Inactive. Did not engage in any activities that contributed to my overall mental fitness level.",
+      "score_1": "Engaged in activities to sustain intellectual fitness. Read, wrote, et cetera in a way to maintain current level.",
+      "score_2_4": "Took aggressive steps toward developing intellectual health. Read challenging books/articles, engaged in musical/artistic activities, escaped comfort zone.",
+      "score_5": "Achieved a major breakthrough in understanding, grasped a concept that made significant impact to my life and my ability to impart knowledge and skills."
+    }
+  },
+  {
+    "id": "time_management",
+    "category": "Personal Development",
+    "title": "⏰ Time Management",
+    "description": "Discipline applied to managing available time. Prioritizing tasks are identified and accomplished in order, while avoiding anything that results in wasted time.",
+    "scores": {
+      "score_0": "Wasted time today. Exerted no effort toward accomplishing anything productive.",
+      "score_1": "Managed time in a way that allowed me to accomplish the minimum required daily events.",
+      "score_2_4": "Was highly productive and accomplished meaningful tasks throughout the day. Avoided distraction and time wasting activities.",
+      "score_5": "Used every minute of the day to the max extent possible. Wasted no time and devoted energy to only the most critical and impactful priorities. Set standard for a new level of time management and productivity."
+    }
+  },
+  {
+    "id": "financial_management",
+    "category": "Personal Development",
+    "title": "💵 Financial Management",
+    "description": "Discipline applied to financial well being, income, savings, and growth. Making financial decisions and spending money that contributes to long term financial freedom.",
+    "scores": {
+      "score_0": "Did not make financially intelligent decisions with money. Undermined goal of creating financial freedom.",
+      "score_1": "Made effort to be disciplined with money but made no contribution to future well being or make noteworthy improvement to future financial freedom.",
+      "score_2_4": "Highly disciplined with money limiting wasteful spending.",
+      "score_5": "Wasted no money; completely disciplined in spending and investing in only those things that will lead to long term financial freedom. Made decisions that will deliver lasting impact on me and my entire family helping secure financial freedom."
+    }
+  },
+  {
+    "id": "personal_goals",
+    "category": "Personal Development",
+    "title": "🎯 Personal Goals",
+    "description": "Ability to identify, clearly define, and establish a path to achieving worthwhile and meaningful goals. Accomplishment of the critical life events required to achieve those goals set for you and for the people influenced by you.",
+    "scores": {
+      "score_0": "Spent no time considering new goals or minimising goals. Remained comfortable with current plans and wasn't proactive in accomplishing anything useful.",
+      "score_1": "Took time to consider minor goals. Worked toward achieving goals without significant steps to create or achieve larger goals.",
+      "score_2_4": "Significant movement toward reaching goal. Strong development of meaningful future goals.",
+      "score_5": "Identified The Path and pursued goals that will lead to a better life. Completed one or more of the critical events required to achieve the standards I set for myself and for the people I influence."
+    }
+  },
+  {
+    "id": "performance",
+    "category": "Professional Development",
+    "title": "💻 Performance",
+    "description": "The skills and effort required to be effective at work and to ensure security and advancement in chosen career.",
+    "scores": {
+      "score_0": "Performed work below the standard or did not work at all. Was counterproductive regarding individual and company wide success.",
+      "score_1": "Completed basic assigned tasks. Identified areas and tasks where additional guidance was needed in order to complete assignments, but did not perform in a noteworthy manner.",
+      "score_2_4": "Exceeded standards established while completing key assignments accurately and on schedule. Helped others complete their assigned tasks.",
+      "score_5": "Outperformed all expectations. Vastly exceeded requirements and set new standard for job performance. Completed all assignments ahead of schedule with a high degree of accuracy. Helped others complete their assigned tasks. Considered the impact of work up, down, and across the team and contributed fully to maximize it."
+    }
+  },
+  {
+    "id": "advancement_qualifications",
+    "category": "Professional Development",
+    "title": "🎓 Advancement/Qualifications",
+    "description": "Identifying and accomplishing the required steps and professional education to increase responsibility and value to the organization.",
+    "scores": {
+      "score_0": "Did nothing to move down The Path for increased growth and responsibility.",
+      "score_1": "Pursued information regarding useful qualifications for my profession. Sought out guidance and advice from others to determine how best to engage in the future.",
+      "score_2_4": "Actively pursued professional certifications and credentials. Sought out and implemented expert advice regarding additional higher level certifications.",
+      "score_5": "Took most significant step toward achieving professional certifications and credentials. Deeply involved with mentors regarding additional higher level certifications and optimized path to achieving them."
+    }
+  },
+  {
+    "id": "humility",
+    "category": "Character/Leadership",
+    "title": "🧘 Humility",
+    "description": "Management of the ego that balances assertive and difficult goals with behavior that cultivates the respect, loyalty, and support of those around me.",
+    "scores": {
+      "score_0": "Allowed my ego to dictate my actions, undermining my credibility as a leader. Did not conduct a brutally honest self-assessment or find ways to improve.",
+      "score_1": "Stayed humble in normal life settings. Controlled my ego and maintained self-awareness to it.",
+      "score_2_4": "While in a situation where I normally allow my ego to dictate my actions, I maintained humility and behaved in an authentic and effective manner.",
+      "score_5": "Controlled my ego in the most challenging environment leading to an ideal outcome where previously I would have let my ego control me and make a bad decision. Actions created or reinforced my reputation as humble leader leading to significant increase in credibility and effectiveness as a leader."
+    }
+  },
+  {
+    "id": "emotional_control",
+    "category": "Character/Leadership",
+    "title": "😇 Emotional Control",
+    "description": "Ability to recognize and control counterproductive emotional responses. Recognizing weakness and having the ability to detach from emotion and react appropriately in difficult circumstances.",
+    "scores": {
+      "score_0": "Lost control of emotions when interacting with the people around me during a stressful encounter. Set back any progress toward controlling emotions.",
+      "score_1": "Maintained control of my emotions in normal situations. Was aware of periods of heightened emotions and did not let them get out of control.",
+      "score_2_4": "Maintained emotional control in difficult environments and under awareness of progress of reducing need to vent emotions from getting out of control.",
+      "score_5": "Maintained emotions under duress in the most difficult situation possible. Was able to immediately identify my own role as origin of those peopled around me, detach, and make the ideal decision to get the best possible outcome that otherwise would have been missed."
+    }
+  },
+  {
+    "id": "mentorship_charity",
+    "category": "Character/Leadership",
+    "title": "👨‍🏫 Mentorship/Charity",
+    "description": "Identifying the need in others to be led. Demonstrating role model action and behavior that others can replicate to enhance their lives and the lives of the people around them. Being helpful and generous to people that need and can benefit from our help while not creating their long term reliance. Recognition of the benefit of helping those who are highly impacted by time spent with them.",
+    "scores": {
+      "score_0": "Failed to provide a useful example when opportunities to do so were present. Did not hold myself to the standard. Gave nothing of my time, money, or energy to those in need.",
+      "score_1": "Found limited opportunity to help others. Made minimal impact when opportunities were present.",
+      "score_2_4": "Made legitimate contributions to important people in my life needing support. Found an effective way to mentor/support someone that will make legitimate and lasting impact in their life.",
+      "score_5": "Found a way to help someone in dire need that will benefit from my mentorship/charity in a way that impacts them and the world around them in the most profound way possible."
+    }
+  },
+  {
+    "id": "quality_time_with_family",
+    "category": "Relationship",
+    "title": "🧍‍♀️ Quality Time with Family",
+    "description": "Strengthening relationships with your spouse, children, and other family members to build bonds and provide stability in their world by optimizing limited time available with family and friends.",
+    "scores": {
+      "score_0": "Spent no time strengthening bonds with family. Missed opportunities to do something valuable with the people that matter most in my life.",
+      "score_1": "Spent time with family but was distracted by other priorities and engaged in a limited way. Did not devote full attention to them.",
+      "score_2_4": "Spent quality time with family. Maintained awareness of family schedule and major events in the lives of immediate family members so I could be present and contribute at a useful time.",
+      "score_5": "Took full advantage of time spent with family and significantly strengthened those bonds. Made lasting contributions as a result of being fully aware of schedule and major events in the lives of family members."
+    }
+  },
+  {
+    "id": "quality_time_friends_coworkers",
+    "category": "Relationship",
+    "title": "🕺 Quality Time Friends/Co-Workers",
+    "description": "Recognizing the need for, and strengthening relationships outside your family by taking full advantage of the limited time available with friends and co-workers.",
+    "scores": {
+      "score_0": "Spent no time strengthening bonds with friends. Missed opportunities to do something valuable with the important people in my life.",
+      "score_1": "Spent time with important friends but was distracted and engaged in a limited way. Did not offer full attention or engagement.",
+      "score_2_4": "Spent quality time with friends/co-workers. Found ways to be involved in major life events, positively impacting their life.",
+      "score_5": "Took full advantage of time spent with the most important people outside my family and significantly strengthened those bonds. Fully aware of and engaged in important events leading to significant growth in relationships that will positively impact lives."
+    }
+  }
+]
