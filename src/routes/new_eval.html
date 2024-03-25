@@ -1,0 +1,91 @@
+<template x-route.target.app="/eval/new">
+    <div
+          class="evaluation"
+          x-data="{ 
+            new_evaluation: $store.questions.reduce((a, b) => ({ ...a, [b.id]: 0 }), {}),
+            async submitEvaluation(evaluation) {
+               $store.evaluations.values.push({
+                    date: Date.now(),
+                    values: evaluation
+               })
+               await $store.evaluations.save()
+               console.log($store.evaluations.values)
+               $router.redirect('/')
+            }
+          }"
+        >
+        <div
+            class="evaluation__header"
+            x-text="new Date().toDateString()"
+          ></div>
+
+        <template x-for="question in $store.questions">
+            <section class="evaluation__question">
+                <h3
+                class="evaluation__question-title"
+                x-text="question.title"
+              ></h3>
+                <p
+                class="evaluation__question-subtitle"
+                x-text="question.description"
+              ></p>
+                <div class="evaluation__input">
+                    <template x-for="i in [0,1,2,3,4,5]">
+                        <div
+                    @click="new_evaluation[question.id] = i"
+                    class="evaluation__input-tile"
+                    :class="new_evaluation[question.id] === i ? 'evaluation__input-tile--selected' : ''"
+                    x-text="i"
+                  ></div>
+                    </template>
+                </div>
+                <p class="evaluation__question-answer">
+                    <strong x-text="new_evaluation[question.id]"></strong>
+                -
+                <template x-if="new_evaluation[question.id] === 0">
+                        <span
+                    x-text="$store.questions.find(q => q.id === question.id).scores.score_0"
+                  ></span>
+                    </template>
+                    <template x-if="new_evaluation[question.id] === 1">
+                        <span
+                    x-text="$store.questions.find(q => q.id === question.id).scores.score_1"
+                  ></span>
+                    </template>
+                    <template
+                  x-if="new_evaluation[question.id] > 1 && new_evaluation[question.id] < 5"
+                >
+                        <span
+                    x-text="$store.questions.find(q => q.id === question.id).scores.score_2_4"
+                  ></span>
+                    </template>
+                    <template x-if="new_evaluation[question.id] === 5">
+                        <span
+                    x-text="$store.questions.find(q => q.id === question.id).scores.score_5"
+                  ></span>
+                    </template>
+                </p>
+            </section>
+        </template>
+
+        <div class="evaluation__overall">
+            <p>Your overall score is</p>
+            <h3>
+                <span
+                x-text="(Object.values(new_evaluation).reduce((a, b) => a + b, 0) / Object.keys(new_evaluation).length).toFixed(1)"
+              ></span>
+              / 5
+            </h3>
+        </div>
+
+        <button
+            @click="submitEvaluation(new_evaluation)"
+            class="btn btn-primary"
+          >
+            Finish Evaluation
+          </button>
+        <div style="margin-top: 24px; text-align: center">
+            <a href="/" class="link link-negative">Cancel, go to dashboard</a>
+        </div>
+    </div>
+</template>

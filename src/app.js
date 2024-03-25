@@ -1,25 +1,16 @@
 // load pinecone router
 import questions from "./eval.json";
 import PineconeRouter from "pinecone-router";
-// then load alpine.js
 import Alpine from "alpinejs";
-import localforage from "localforage";
-// add the router as a plugin
+
+import { setEvals, getEvals } from "./db";
+import * as utils from "./util";
+
+const { sortByDate, getScore } = utils;
+
 Alpine.plugin(PineconeRouter);
 
-const newEval = () => questions.reduce((a, b) => ({ ...a, [b.id]: 0 }), {});
-
-const sortByDate = (arr) => [...arr].sort((a, b) => b.date - a.date);
-
-const __evaluations_key__ = "__EVALUATIONS__";
-
-const getScore = (form) =>
-  Object.values(form).reduce((a, b) => a + b, 0) / Object.keys(form).length;
-
-const getEvals = async () => {
-  const evaluations = (await localforage.getItem(__evaluations_key__)) ?? [];
-  return evaluations;
-};
+Alpine.store("utils", utils);
 
 Alpine.store("questions", questions);
 
@@ -27,25 +18,17 @@ Alpine.store("evaluations", {
   values: [],
   loaded: false,
   async save() {
-    await localforage.setItem(
-      __evaluations_key__,
-      JSON.parse(JSON.stringify(this.values))
-    );
+    return setEvals(this.values);
   },
   async getExisting(date) {
     this.values = await getEvals();
     return this.values.find((v) => v.date === date)?.values;
   },
   async sortedValues() {
-    return sortByDate(this.values)
+    return sortByDate(this.values);
   },
   async updateEval(date, updatedValues) {
-    this.values = this.values.map((v) => {
-      if (v.date === date) {
-        return updatedValues;
-      }
-      return v;
-    });
+    this.values = this.values.map((v) => (v.date === date ? updatedValues : v));
   },
   async removeEval(date) {
     this.values = this.values.filter((v) => v.date !== date);
@@ -63,26 +46,24 @@ Alpine.store("evaluations", {
   async last30dAverage() {
     return this.lastXdAverage(30);
   },
-  async last7dValues() {
-    const arr = sortByDate(this.values.slice(-7));
+  async getLastXdValues(days, valueFn, fallback = "--") {
+    const arr = sortByDate(this.values.slice(-1 * days));
     const week = [];
-    for (let i = 0; i < 7; i++) {
-      week.push(arr[i] ? getScore(arr[i].values).toFixed(1) : "--");
+    for (let i = 0; i < days; i++) {
+      week.push(arr[i] ? valueFn(arr[i]) : fallback);
     }
     return week.reverse();
   },
+  async last7dValues() {
+    return this.getLastXdValues(7, (v) => getScore(v.values).toFixed(1));
+  },
   async last30dValues() {
-    const arr = sortByDate(this.values.slice(-30));
-    const week = [];
-    for (let i = 0; i < 30; i++) {
-      week.push(arr[i] ? getScore(arr[i].values) / 5 : 0.1);
-    }
-    return week.reverse();
+    return this.getLastXdValues(30, (v) => getScore(v.values) / 5, 0.1);
   },
   async init() {
     this.values = await getEvals();
     this.loaded = true;
   },
 });
-// start alpine
+
 Alpine.start();

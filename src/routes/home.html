@@ -1,0 +1,71 @@
+<template x-route.target.app="/">
+    <div class="dashboard">
+        <div class="evaluation__header">Your performance summary</div>
+        <section class="dashboard__section">
+            <h4 class="dashboard__title">Last 7 days</h4>
+            <p class="dashboard__metric">
+                <span x-text="$store.evaluations.last7dAverage()"></span>/5
+        </p>
+            <div class="dashboard__week">
+                <template x-for="d in $store.evaluations.last7dValues()">
+                    <div class="dashboard__week-tile" :style="`background-color: ${$store.utils.getColorByValue(d)}`" x-text="d"></div>
+                </template>
+            </div>
+        </section>
+        <section class="dashboard__section">
+            <h4 class="dashboard__title">Last 30 days</h4>
+            <p class="dashboard__metric">
+                <span x-text="$store.evaluations.last30dAverage()"></span>/5
+        </p>
+            <div class="dashboard__chart-container">
+                <div class="dashboard__chart-axes">
+                    <span>5</span>
+                    <span>3</span>
+                    <span>0</span>
+                </div>
+                <div class="dashboard__chart">
+                    <template
+                x-for="(bar, index) in $store.evaluations.last30dValues()"
+            >
+                        <div
+                class="dashboard__chart-bar"
+                :style="`height: ${150 * bar}px; background-color: ${$store.utils.getColorByValue(bar * 5, 'bar')};`"
+                >
+                            <span
+                    x-show="index === 0 || index === 29 || (index % 3 === 0)"
+                    x-text="index+1"
+                ></span>
+                        </div>
+                    </template>
+                </div>
+            </div>
+        </section>
+        <section x-data="{
+            showAll: false,
+            async removeEval(date) {
+                if (confirm('Are you sure?')) {
+                    $store.evaluations.removeEval(date)
+                    await $store.evaluations.save()
+                }
+            }
+        }" class="dashboard__section">
+            <h4 class="dashboard__title">Latest evaluations</h4>
+            <div class="dashboard__evaluations">
+                <p x-show="$store.evaluations.values.length === 0">No evaluations</p>
+                <template x-for="(ev, index) in $store.evaluations.sortedValues()">
+                    <div x-show="showAll ? true : index <= 3" class="dashboard__eval">
+                        <p class="dashboard__eval-title">
+                            <a :href="`/eval/${ev.date}`" class="link-primary" x-text="new Date(ev.date).toGMTString()"></a>
+                        </p>
+                        <div class="dashboard__eval-actions">
+                            <a :href="`/eval/${ev.date}`" class="link link-primary">Edit</a>
+                            <a @click="removeEval(ev.date)" class="link link-negative">&times;</a>
+                        </div>
+                    </div>
+                </template>
+                <a @click.prevent="showAll = true" x-show="!showAll &&  $store.evaluations.values.length > 3" style="text-align: center; margin: 16px 0;" class="link link-primary">Show all evaluations</a>
+            </div>
+            <a href="/eval/new" class="btn btn-primary">&plus; Add New Evaluation</a>
+        </section>
+    </div>
+</template>
