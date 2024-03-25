@@ -66,4 +66,7 @@ Alpine.store("evaluations", {
   },
 });
 
-Alpine.start();
+document.addEventListener('DOMContentLoaded', () => {
+  Alpine.start();
+});
+

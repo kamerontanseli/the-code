@@ -9,11 +9,9 @@
   <body>
     <div x-data>
       <div id="app" class="app"></div>
-
-      {% include "routes/home.html" %}
-      {% include "routes/new_eval.html" %}
-      {% include "routes/edit_eval.html" %}
-
+      <include src="./src/routes/home.html"></include>
+      <include src="./src/routes/new_eval.html"></include>
+      <include src="./src/routes/edit_eval.html"></include>
       <!-- 404 handler -->
       <template x-route.target.app="notfound">
         <div>
