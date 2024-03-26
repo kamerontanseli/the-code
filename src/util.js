@@ -15,3 +15,21 @@ export const getColorByValue = (v, type = "background") => {
 
 export const getScore = (form) =>
   Object.values(form).reduce((a, b) => a + b, 0) / Object.keys(form).length;
+
+export const matchDate = (date) => (v) => v.date === date;
+
+export const computeScore = (v) => getScore(v.values).toFixed(1);
+
+export const getPercentFromScore = (v) => getScore(v.values) / 5;
+
+export const ifelse =
+  (cond, tfx, ffx) =>
+  (...args) =>
+    cond(...args) ? tfx(...args) : ffx(...args);
+
+export const identity = (i) => i;
+
+export const not =
+  (fn) =>
+  (...args) =>
+    !fn(...args);
